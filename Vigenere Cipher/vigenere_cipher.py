@@ -9,14 +9,9 @@ def key_generator(text, alphabet, key):
             if j >= len(key):
                 j = 0
             if char.lower() in alphabet:
-                if char.islower():
-                    char = key[j]
-                    j += 1
-                    result += char.lower()
-                if char.isupper():
-                    char = key[j]
-                    j += 1
-                    result += char.upper()
+                char = key.lower()[j]
+                j += 1
+                result += char.lower()
             if char not in alphabet:
                 result += char
                 j += 1
@@ -33,7 +28,7 @@ def vigenere_encrypt(text, alphabet, key):
             i += 1
         if char.lower() in alphabet:
             cipher_index = alphabet.index(cipher)
-            char_index = alphabet.index(char)
+            char_index = alphabet.index(char.lower())
             if cipher_index == 0:
                 result += char
             else:
@@ -68,6 +63,7 @@ def vigenere_decrypt(text, alphabet, key):
 txt = input("Enter text: ")
 key = input("Enter key: ")
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
+print(key_generator(txt, alphabet, key), "<--> KEY")
 key = key_generator(txt, alphabet, key)
 encrypted_txt = vigenere_encrypt(txt, alphabet, key)
 
