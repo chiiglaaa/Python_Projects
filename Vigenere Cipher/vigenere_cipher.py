@@ -63,7 +63,6 @@ def vigenere_decrypt(text, alphabet, key):
 txt = input("Enter text: ")
 key = input("Enter key: ")
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-print(key_generator(txt, alphabet, key), "<--> KEY")
 key = key_generator(txt, alphabet, key)
 encrypted_txt = vigenere_encrypt(txt, alphabet, key)
 
